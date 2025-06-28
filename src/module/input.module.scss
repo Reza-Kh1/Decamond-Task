@@ -1,0 +1,40 @@
+.label{
+display: flex;
+flex-direction: column;
+gap: 10;
+width: 100%;
+  
+  span{
+  color: #ffffff;
+  display: block;
+  }
+.errorMessage {
+    color: rgb(193, 58, 58);
+    font-size: 14px;
+    margin-top: 4px;
+}
+  .input {
+  display: block;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #333;
+  padding: 0.75rem 0.75rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 420px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &::placeholder {
+    color: #888;
+  }
+&.error {
+        border-color: rgb(193, 58, 58);
+    }
+  &:focus {
+    border-color: #00e1ff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 225, 255, 0.2);
+  }
+  }
+}

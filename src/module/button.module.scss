@@ -1,0 +1,39 @@
+.button {
+  background: linear-gradient(135deg, #00e1ff, #007bff);
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  min-width: 150px;
+  &:hover {
+    background: linear-gradient(135deg, #00c2ff, #0062d1);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.spinnerContainer{
+  display: flex;
+  gap: 15;
+  align-items: center;
+  justify-content: center;
+  svg {
+    animation: rotate 1.5s linear infinite;
+  }
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
