@@ -1,10 +1,13 @@
 import Link from "next/link";
-
+import styles from "@/module/global.module.scss"
+import Buttons from "@/components/shared/Buttons";
 export default function Home() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)]">
+    <div className={styles.countainer}>
       <Link href={'/auth'}>
-        Login
+        <Buttons>
+          Login / Register
+        </Buttons>
       </Link>
     </div>
   );

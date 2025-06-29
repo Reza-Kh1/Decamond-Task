@@ -25,6 +25,7 @@ export async function middleware(req: NextRequest) {
       }
     } catch (e) {
       url.pathname = "/auth";
+      console.log(e);
       const response = NextResponse.redirect(url);
       response.cookies.delete("task");
       return response;

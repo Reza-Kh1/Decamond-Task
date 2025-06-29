@@ -20,13 +20,8 @@ export default function PhoneInput({ errorMsg, label, placeholder, name, ...othe
                 placeholder={placeholder || "e.g. 09390199977"}
                 autoComplete="off"
                 data-lpignore="true"
-                onKeyDown={(e) => {
-                    if (!/[0-9]|Backspace|ArrowLeft|ArrowRight|Delete|Tab/.test(e.key)) {
-                        e.preventDefault();
-                    }
-                }}
                 maxLength={11}
-                type="tel"
+                type="text"
                 {...other}
             />
             {errorMsg && <span className={styles.errorMessage}>{errorMsg}</span>}

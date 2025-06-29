@@ -11,8 +11,8 @@ export default function Page() {
     const [valueInput, setValueInput] = useState('')
     const [loading, setLoading] = useState<boolean>(false)
     const router = useRouter()
-    const submitAction = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
+    const submitAction = async (e?: FormEvent<HTMLFormElement>) => {
+        e?.preventDefault()
         const validationError = validatePhone(valueInput)
         setError(validationError)
 
@@ -30,9 +30,10 @@ export default function Page() {
                         secure: process.env.NODE_ENV === 'production',
                         sameSite: 'lax'
                     });
-                    router.push('/dashboard')
+                    router.replace('/dashboard')
                 }
-            } catch (_err) {
+            } catch (err) {
+                console.log(err);
                 setError('Please try again')
             } finally {
                 setLoading(false)
@@ -60,11 +61,19 @@ export default function Page() {
             <h1>Login</h1>
             <form className={styles.form} onSubmit={submitAction}>
                 <Inputs
+                    onKeyDown={(e) => {                        
+                        if (e.code === 'Enter') {
+                            submitAction()
+                        }
+                        if (!/[0-9]|Backspace|ArrowLeft|ArrowRight|Delete|Tab/.test(e.key)) {
+                            e.preventDefault();
+                        }
+                    }}
                     errorMsg={error}
                     onChange={handlePhoneChange}
                     value={valueInput}
                     label='Phone Number :'
-                    required
+                    required={true}
                     name='phone'
                     placeholder='type phone number'
                 />
