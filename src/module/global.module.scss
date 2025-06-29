@@ -25,4 +25,14 @@
       align-items: center;
       justify-content: center;
     }
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 25px;
+    }
+
+    .form {
+      padding: 20px;
+      min-width: 90%;
+    }
+  }
 }

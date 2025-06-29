@@ -28,7 +28,7 @@ width: 100%;
   &::placeholder {
     color: #888;
   }
-&.error {
+  &.error {
         border-color: rgb(193, 58, 58);
     }
   &:focus {
